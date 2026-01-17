@@ -1,0 +1,74 @@
+\chapter{Asymptotic Notation and Differentiability}
+
+\section{Lecture Notes: Angles and Asymptotics}
+\subsection{Angle Between Vectors}
+\begin{definition}[Angle]
+Let $V$ be an inner product space. For non-zero vectors $u, v \in V$, the angle $\alpha$ between them is defined by:
+\[ \cos \alpha = \frac{\langle u, v \rangle}{\|u\| \|v\|} \]
+If $u=0$ or $v=0$, the angle is undefined.
+\end{definition}
+
+\subsection{Asymptotic Notation ($O$ Notation)}
+Let $f, g: \mathbb{R} \to \mathbb{R}$ be functions defined in a neighborhood of a point $x_0$ (or at infinity).
+
+\begin{definition}[Big O]
+We say $f = O(g)$ as $x \to x_0$ if there exist constants $C, \delta > 0$ such that:
+\[ |f(x)| \le C |g(x)| \quad \text{for all } 0 < |x - x_0| < \delta \]
+\end{definition}
+
+\begin{definition}[Big Omega]
+We say $f = \Omega(g)$ as $x \to x_0$ (meaning $g = O(f)$) if there exist constants $c, \delta > 0$ such that:
+\[ |f(x)| \ge c |g(x)| \quad \text{for all } 0 < |x - x_0| < \delta \]
+\end{definition}
+
+\begin{definition}[Big Theta]
+We say $f = \Theta(g)$ if $f = O(g)$ and $f = \Omega(g)$. This means $f$ and $g$ have the same rate of growth.
+\end{definition}
+
+\begin{definition}[Small o]
+We say $f = o(g)$ as $x \to x_0$ if:
+\[ \lim_{x \to x_0} \frac{f(x)}{g(x)} = 0 \]
+Equivalently, for every $\epsilon > 0$ there exists $\delta > 0$ such that $|f(x)| \le \epsilon |g(x)|$ when $0 < |x - x_0| < \delta$.
+\end{definition}
+
+\subsubsection{Arithmetic of Asymptotic Notation}
+\begin{enumerate}
+    \item If $f = O(g)$ and $g = O(h)$, then $f = O(h)$ (Transitivity).
+    \item $O(g) + O(g) = O(g)$.
+    \item $O(f) \cdot O(g) = O(f \cdot g)$.
+    \item If $f = o(g)$, then $f = O(g)$.
+\end{enumerate}
+
+\section{Recitation Notes: Limits and Derivatives}
+
+\subsection{Limits and Continuity}
+We can rephrase limits using small-o notation.
+\begin{theorem}
+\[ \lim_{x \to x_0} f(x) = 0 \iff f(x) = o(1) \quad (\text{as } x \to x_0) \]
+\[ \lim_{x \to x_0} f(x) = L \iff f(x) = L + o(1) \]
+\end{theorem}
+
+\begin{definition}[Continuity at a Point]
+A function $f$ is continuous at $c$ if:
+\[ f(x) = f(c) + o(1) \quad (\text{as } x \to c) \]
+\end{definition}
+
+\subsection{Differentiability}
+\begin{definition}[Derivative at a Point]
+A function $f: (a, b) \to \mathbb{R}$ is differentiable at $c \in (a, b)$ if there exists a linear approximation $L(x) = \alpha(x-c)$ such that the error is "small" compared to the displacement.
+Formally, there exists $\alpha \in \mathbb{R}$ such that:
+\[ f(x) = f(c) + \alpha(x-c) + o(x-c) \quad (\text{as } x \to c) \]
+This $\alpha$ is the derivative, denoted $f'(c)$.
+\end{definition}
+
+\begin{example}
+Let $f(x) = 3 + 2x + 5x^2$. We check differentiability at $x=0$.
+\[ f(x) = 3 + 2x + O(x^2) \]
+Since $O(x^2) = o(x)$, we have $f(x) = 3 + 2x + o(x)$.
+Thus $f(0) = 3$ and $f'(0) = 2$.
+\end{example}
+
+\begin{theorem}
+If $f$ and $g$ are differentiable at $c$, then $f+g$ and $f \cdot g$ are differentiable at $c$.
+\[ (f \cdot g)'(c) = f'(c)g(c) + f(c)g'(c) \]
+\end{theorem}

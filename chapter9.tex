@@ -1,0 +1,48 @@
+\chapter{Taylor Expansion and Critical Points}
+
+\section{Analysis of Functions}
+
+\subsection{Local Extrema}
+\begin{definition}[Local Minimum]
+Let $f: \mathbb{R}^n \to \mathbb{R}$. A point $x^*$ is a local minimum if there exists a neighborhood $N$ of $x^*$ such that $f(x) \ge f(x^*)$ for all $x \in N$.
+\end{definition}
+
+\begin{theorem}[Fermat]
+If $f$ is differentiable at a local extremum $x^*$, then $\nabla f(x^*) = 0$.
+Proof: If $\nabla f(x^*) \neq 0$, we can move in the direction of $-\nabla f(x^*)$ to decrease the function value (using linear approximation), contradicting the minimum.
+\end{theorem}
+
+\section{Taylor's Theorem}
+
+\subsection{Taylor Polynomial}
+Let $f: \mathbb{R} \to \mathbb{R}$ be $n$ times differentiable. The Taylor polynomial of degree $n$ around $x^*$ is:
+\[ P_{f, x^*}^n(x) = f(x^*) + f'(x^*)(x-x^*) + \frac{f''(x^*)}{2!}(x-x^*)^2 + \dots + \frac{f^{(n)}(x^*)}{n!}(x-x^*)^n \]
+
+\subsection{Multivariable Taylor Formulas}
+For $f: \mathbb{R}^n \to \mathbb{R}$:
+
+\textbf{First Order ($n=1$):}
+\[ f(x) = f(x^*) + f'(x^*)(x-x^*) + o(\|x-x^*\|) \]
+where $f'(x^*)$ is the gradient row vector.
+
+\textbf{Second Order ($n=2$):}
+\[ f(x) = f(x^*) + \nabla f(x^*)^T (x-x^*) + \frac{1}{2} (x-x^*)^T H(x^*) (x-x^*) + o(\|x-x^*\|^2) \]
+where $H(x^*)$ is the \textbf{Hessian matrix} of second partial derivatives:
+\[ H_{ij} = \frac{\partial^2 f}{\partial x_i \partial x_j} \]
+
+\subsection{Classification of Critical Points}
+Let $x^*$ be a critical point ($\nabla f(x^*) = 0$).
+\begin{itemize}
+    \item If $H(x^*)$ is positive definite ($\forall v \neq 0, v^T H v > 0$), then $x^*$ is a local minimum.
+    \item If $H(x^*)$ is negative definite, then $x^*$ is a local maximum.
+    \item If $H(x^*)$ is indefinite (has both positive and negative eigenvalues), then $x^*$ is a saddle point.
+\end{itemize}
+
+\subsection{Example: $f(x, y) = \cos(x) + \cos(y)$}
+Gradient: $\nabla f = (-\sin x, -\sin y)$.
+Critical points where $\sin x = 0, \sin y = 0 \implies x, y = k\pi$.
+Hessian:
+\[ H = \begin{pmatrix} -\cos x & 0 \\ 0 & -\cos y \end{pmatrix} \]
+At $(0, 0)$: $H = \begin{pmatrix} -1 & 0 \\ 0 & -1 \end{pmatrix}$ (Negative Definite) $\implies$ Maximum.
+At $(\pi, \pi)$: $H = \begin{pmatrix} 1 & 0 \\ 0 & 1 \end{pmatrix}$ (Positive Definite) $\implies$ Minimum.
+At $(\pi, 0)$: $H = \begin{pmatrix} 1 & 0 \\ 0 & -1 \end{pmatrix}$ (Indefinite) $\implies$ Saddle.

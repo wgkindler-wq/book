@@ -1,0 +1,47 @@
+\chapter{Advanced Differentiation and Little-o}
+
+\section{Lecture Notes: Little-o Notation and Limits}
+
+\subsection{Little-o and Big-O}
+Let $f, g: \mathbb{R}^n \to \mathbb{R}^m$.
+\begin{definition}[Big-O]
+$f = O(g)$ as $x \to x^*$ if there exist constants $C, \delta > 0$ such that $\|f(x)\| \le C \|g(x)\|$ for all $\|x - x^*\| < \delta$.
+\end{definition}
+
+\begin{definition}[Little-o]
+$f = o(g)$ as $x \to x^*$ if for every $\epsilon > 0$, there exists $\delta > 0$ such that $\|f(x)\| \le \epsilon \|g(x)\|$ for all $0 < \|x - x^*\| < \delta$.
+Equivalently, $\lim_{x \to x^*} \frac{\|f(x)\|}{\|g(x)\|} = 0$.
+\end{definition}
+
+\subsection{Differentiability Revisited}
+\begin{definition}[Total Differentiation]
+A function $f: \mathbb{R}^n \to \mathbb{R}^m$ is differentiable at $x^*$ if there exists a matrix $A$ such that:
+\[ f(x) = f(x^*) + A(x - x^*) + o(x - x^*) \]
+The matrix $A$ is unique and is the Jacobian of $f$ at $x^*$, denoted $f'(x^*)$.
+\end{definition}
+
+\section{Recitation Notes: The Jacobian Matrix}
+
+\subsection{Matrix Representation}
+If $f: \mathbb{R}^n \to \mathbb{R}^m$ is differentiable, its derivative $f'(x)$ is an $m \times n$ matrix.
+\[ A = f'(x) = \begin{pmatrix}
+\frac{\partial f_1}{\partial x_1} & \dots & \frac{\partial f_1}{\partial x_n} \\
+\vdots & \ddots & \vdots \\
+\frac{\partial f_m}{\partial x_1} & \dots & \frac{\partial f_m}{\partial x_n}
+\end{pmatrix} \]
+
+\subsection{Example}
+Let $f(x, y) = (x^2 + 4xy + y^2)$. Here $f: \mathbb{R}^2 \to \mathbb{R}$.
+The derivative is the gradient row vector:
+\[ f'(x, y) = \begin{pmatrix} 2x + 4y & 4x + 2y \end{pmatrix} \]
+For $(x^*, y^*) = (5, 6)$:
+\[ f'(5, 6) = \begin{pmatrix} 10 + 24 & 20 + 12 \end{pmatrix} = \begin{pmatrix} 34 & 32 \end{pmatrix} \]
+The linear approximation near $(5, 6)$ is:
+\[ f(x, y) \approx f(5, 6) + 34(x-5) + 32(y-6) \]
+
+\subsection{Properties}
+\begin{enumerate}
+    \item \textbf{Linearity:} $(f+g)'(x) = f'(x) + g'(x)$.
+    \item \textbf{Product Rule:} For scalar field $\phi$ and vector field $f$, $(\phi f)' = \phi f' + f \otimes \phi'$.
+    \item \textbf{Chain Rule:} $(g \circ f)'(x) = g'(f(x)) \cdot f'(x)$ (Matrix multiplication).
+\end{enumerate}

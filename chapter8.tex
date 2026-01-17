@@ -1,0 +1,47 @@
+\chapter{Gradient Fields and Path Integrals}
+
+\section{Recitation Notes: Directional Derivatives}
+
+\subsection{Definition}
+The directional derivative of $f: \mathbb{R}^n \to \mathbb{R}$ at $x$ in the direction $v$ is:
+\[ \frac{\partial f}{\partial v}(x) = \lim_{t \to 0} \frac{f(x + tv) - f(x)}{t} \]
+If $f$ is differentiable at $x$, then:
+\[ \frac{\partial f}{\partial v}(x) = f'(x)v = \langle \nabla f(x), v \rangle \]
+
+\subsection{Critical Points}
+\begin{theorem}
+If $x^*$ is a local extremum (min or max) of a differentiable function $f$, then $\nabla f(x^*) = 0$.
+Proof: For every direction $i$, the partial derivative $\frac{\partial f}{\partial x_i}$ must be 0.
+\end{theorem}
+
+\section{Lecture Notes: Path Integrals}
+
+\subsection{Vector Fields}
+\begin{definition}[Vector Field]
+A function $g: \mathbb{R}^n \to \mathbb{R}^n$ is called a vector field.
+Example: $g(x, y) = \begin{pmatrix} x^2 - y^2 - 4 \\ 2xy \end{pmatrix}$.
+\end{definition}
+
+\begin{definition}[Gradient Field]
+A field $g$ is a \textbf{gradient field} (or conservative field) if there exists a scalar function $f: \mathbb{R}^n \to \mathbb{R}$ (called potential) such that $g = \nabla f = (f')^T$.
+\end{definition}
+
+\subsection{Path Integrals (Line Integrals)}
+Let $g: \mathbb{R}^n \to \mathbb{R}^n$ be a vector field and $\gamma: [a, b] \to \mathbb{R}^n$ be a smooth path.
+The integral of $g$ along $\gamma$ is defined as:
+\[ \int_\gamma \langle g, d\gamma \rangle := \int_a^b \langle g(\gamma(t)), \gamma'(t) \rangle dt \]
+
+\subsection{Fundamental Theorem of Line Integrals}
+\begin{theorem}
+If $g = \nabla f$ is a gradient field, then for any path $\gamma$ from $A$ to $B$:
+\[ \int_\gamma \langle \nabla f, d\gamma \rangle = f(\gamma(b)) - f(\gamma(a)) = f(B) - f(A) \]
+This means the integral depends only on the endpoints, not the path itself (Path Independence).
+\end{theorem}
+
+\subsection{Example}
+Let $g = \nabla(x^2+y^2) = \begin{pmatrix} 2x \\ 2y \end{pmatrix}$.
+Let $\gamma(t) = (\cos t, \sin t)$ for $t \in [0, 2\pi]$ (Unit circle).
+Then $\langle g(\gamma(t)), \gamma'(t) \rangle = \langle (2\cos t, 2\sin t), (-\sin t, \cos t) \rangle = -2\cos t \sin t + 2\sin t \cos t = 0$.
+Integral is 0.
+Alternatively, using the potential $f(x, y) = x^2+y^2$:
+End point = Start point, so $f(B) - f(A) = 0$.

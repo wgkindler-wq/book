@@ -1,0 +1,54 @@
+\chapter{Global Invertibility and Advanced Optimization}
+
+\section{Global Invertibility}
+
+\subsection{Theorem: Global Inverse Function Theorem}
+Let $f: \mathbb{R}^n \to \mathbb{R}^n$ be a smooth ($C^1$) map.
+If:
+\begin{enumerate}
+    \item $\det(Df(x)) \neq 0$ for all $x \in \mathbb{R}^n$ (Local invertibility everywhere).
+    \item $f$ is proper (i.e., the preimage of every compact set is compact), or alternatively, $\lim_{\|x\| \to \infty} \|f(x)\| = \infty$.
+\end{enumerate}
+Then $f$ is a global diffeomorphism from $\mathbb{R}^n$ to $\mathbb{R}^n$.
+
+\begin{proof}
+Since $f$ is a local homeomorphism everywhere (by the Inverse Function Theorem), the map $f$ is open.
+Since $f$ is proper, it is a closed map.
+The image $f(\mathbb{R}^n)$ is thus both open and closed in $\mathbb{R}^n$ (which is connected).
+Since the image is non-empty, $f(\mathbb{R}^n) = \mathbb{R}^n$ (Surjectivity).
+To prove injectivity, one can use the lifting property of covering maps. Since $\mathbb{R}^n$ is simply connected, a local homeomorphism onto a simply connected space is a global homeomorphism.
+\end{proof}
+
+\section{Optimization Examples}
+
+\subsection{Example 1: Maximize Linear Function on Ellipse}
+Maximize $f(x,y) = 3x+4y$ subject to $4x^2+y^2=1$.
+Lagrange function: $L(x,y,\lambda) = 3x+4y - \lambda(4x^2+y^2-1)$.
+$\nabla L = 0 \implies$
+\[
+\begin{cases}
+3 - 8\lambda x = 0 \implies x = \frac{3}{8\lambda} \\
+4 - 2\lambda y = 0 \implies y = \frac{2}{\lambda} \\
+4x^2+y^2=1
+\end{cases}
+\]
+Substitute $x, y$:
+\[ 4\left(\frac{3}{8\lambda}\right)^2 + \left(\frac{2}{\lambda}\right)^2 = 1 \]
+\[ 4 \cdot \frac{9}{64\lambda^2} + \frac{4}{\lambda^2} = 1 \]
+\[ \frac{9}{16\lambda^2} + \frac{64}{16\lambda^2} = 1 \]
+\[ \frac{73}{16\lambda^2} = 1 \implies \lambda = \pm \frac{\sqrt{73}}{4} \]
+Solving for $x, y$ gives the critical points.
+
+\subsection{Example 2: Distance from Origin}
+Find the minimum distance from the origin to the surface $xyz=1$.
+Minimize $f(x,y,z) = x^2+y^2+z^2$ subject to $g(x,y,z) = xyz=1$.
+$\nabla f = (2x, 2y, 2z)$, $\nabla g = (yz, xz, xy)$.
+\[ (2x, 2y, 2z) = \lambda (yz, xz, xy) \]
+Multiply first eq by $x$, second by $y$, third by $z$:
+\begin{align*}
+2x^2 &= \lambda xyz = \lambda \\
+2y^2 &= \lambda xyz = \lambda \\
+2z^2 &= \lambda xyz = \lambda
+\end{align*}
+So $x^2=y^2=z^2$. Since $xyz=1$, they must satisfy $x=y=z=1$ (or two negatives, e.g., $1, -1, -1$).
+Point $(1,1,1)$ gives squared distance 3. Distance is $\sqrt{3}$.

@@ -1,0 +1,84 @@
+# PDF output files
+*.pdf
+
+# LaTeX auxiliary files
+*.aux
+*.log
+*.out
+*.toc
+*.lof
+*.lot
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex.gz(busy)
+
+# LaTeX intermediate files
+*.dvi
+*.ps
+*.bbl
+*.blg
+*.idx
+*.ind
+*.ilg
+*.glo
+*.gls
+*.ist
+*.acn
+*.acr
+*.alg
+
+# LaTeX build directories
+*.fdb_latexmk/
+*.synctex(busy)
+
+# BibTeX files
+*.bib.bak
+*.bib.sav
+
+# makeindex
+*.maf
+*.mtc
+*.mtc[0-9]*
+*.slf[0-9]*
+*.slt[0-9]*
+*.stc[0-9]*
+
+# hyperref
+*.brf
+
+# knitr
+*-concordance.tex
+
+# sagetex
+*.sagetex.sage
+*.sagetex.py
+*.sagetex.scmd
+
+# pythontex
+*.pytxcode
+pythontex-files-*/
+
+# xindy
+*.xdy
+
+# nomenclature
+*.nlo
+*.nls
+
+# glossaries
+*.glg
+*.gls
+*.glsdefs
+
+# gnuplottex
+*-gnuplottex-*
+
+# Mac specific
+.DS_Store
+
+# Editor backup files
+*~
+*.swp
+*.swo
+*.bak

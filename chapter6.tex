@@ -1,0 +1,46 @@
+\chapter{Fubini's Theorem and Recursive Calculation}
+
+\section{Lecture Notes: Fubini's Theorem}
+
+\subsection{Motivation}
+Calculating integrals by definition (Riemann sums) is often impractical. We seek a method to compute higher-dimensional integrals using iterated one-dimensional integrals.
+
+\subsection{Fubini's Theorem on Rectangles}
+\begin{theorem}[Fubini]
+Let $C = A \times B \subseteq \mathbb{R}^{n+m}$ where $A \subseteq \mathbb{R}^n$ and $B \subseteq \mathbb{R}^m$ are closed rectangles.
+Let $f: C \to \mathbb{R}$ be integrable.
+For each $x \in A$, define the section function $f_x: B \to \mathbb{R}$ by $f_x(y) = f(x, y)$.
+Define $\phi(x) = \underline{\int}_B f_x(y) dy$ and $\psi(x) = \overline{\int}_B f_x(y) dy$.
+Then $\phi$ and $\psi$ are integrable on $A$, and:
+\[ \int_C f = \int_A \phi(x) dx = \int_A \psi(x) dx \]
+In particular, if $f_x$ is integrable for all $x$, then:
+\[ \int_C f(x, y) d(x, y) = \int_A \left( \int_B f(x, y) dy \right) dx \]
+\end{theorem}
+
+\subsection{Recursive Calculation}
+The theorem allows us to reduce an $n$-dimensional integral to $n$ iterated 1-dimensional integrals.
+\[ \int_{[a_1, b_1] \times \dots \times [a_n, b_n]} f = \int_{a_1}^{b_1} \dots \int_{a_n}^{b_n} f(x_1, \dots, x_n) dx_n \dots dx_1 \]
+The order of integration can be swapped if the function is integrable.
+
+\section{Recitation Notes: Normal Domains}
+
+\subsection{Integration over General Sets}
+To integrate over a bounded set $D \subseteq \mathbb{R}^n$, we integrate $f \cdot 1_D$ over a large rectangle $C$ containing $D$.
+We say $D$ is a \textbf{Jordan domain} if its boundary has measure zero (negligible volume).
+
+\subsection{Normal Domains (Types I and II)}
+A set $D \subseteq \mathbb{R}^2$ is a \textbf{Normal Domain with respect to the $x$-axis} (Type I) if:
+\[ D = \{ (x, y) \mid a \le x \le b, \alpha(x) \le y \le \beta(x) \} \]
+where $\alpha, \beta$ are continuous functions.
+For such domains, Fubini's theorem gives:
+\[ \int_D f(x, y) dA = \int_a^b \left( \int_{\alpha(x)}^{\beta(x)} f(x, y) dy \right) dx \]
+
+\subsection{Example: Fubini with Order Swap}
+Consider the integral of $f(x, y) = y \sin(xy)$ over $C = [2, 3] \times [4, 5]$.
+\[ I = \int_2^3 \left( \int_4^5 y \sin(xy) dy \right) dx \]
+This direction is hard. We can swap the order:
+\[ I = \int_4^5 \left( \int_2^3 y \sin(xy) dx \right) dy \]
+Inner integral: $\int_2^3 y \sin(xy) dx = [-\cos(xy)]_{x=2}^{x=3} = \cos(2y) - \cos(3y)$.
+Now integrate with respect to $y$:
+\[ \int_4^5 (\cos(2y) - \cos(3y)) dy = [\frac{1}{2}\sin(2y) - \frac{1}{3}\sin(3y)]_4^5 \]
+This demonstrates how swapping the order of integration can simplify the calculation.

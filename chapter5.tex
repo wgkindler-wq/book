@@ -1,0 +1,45 @@
+\chapter{Integration}
+
+\section{Lecture Notes: The Riemann Integral}
+
+\subsection{Defined on Rectangles}
+Let $C = [a_1, b_1] \times \dots \times [a_n, b_n] \subseteq \mathbb{R}^n$ be a box (or rectangle).
+The volume of $C$ is defined as $\text{vol}(C) = \prod_{i=1}^n (b_i - a_i)$.
+
+\begin{definition}[Partition]
+A partition $P$ of $C$ is a tuple $P = (P_1, \dots, P_n)$ where each $P_i$ is a partition of the interval $[a_i, b_i]$.
+This induces a grid of sub-rectangles $J \in P$.
+The norm of the partition is $|P| = \max_{j} |J_j|$ (maximum diameter of sub-rectangles).
+\end{definition}
+
+\subsection{Riemann Sums and Integrability}
+For a bounded function $f: C \to \mathbb{R}$ and a partition $P$, we define the upper and lower Darboux sums:
+\[ \overline{S}_P(f) = \sum_{J \in P} (\sup_{x \in J} f(x)) \cdot \text{vol}(J) \]
+\[ \underline{S}_P(f) = \sum_{J \in P} (\inf_{x \in J} f(x)) \cdot \text{vol}(J) \]
+
+\begin{definition}[Integrable Function]
+A function $f$ is \textbf{integrable} on $C$ if for every $\epsilon > 0$ there exists a partition $P$ such that:
+\[ \overline{S}_P(f) - \underline{S}_P(f) < \epsilon \]
+In this case, the unique number separating the lower and upper sums is the integral, denoted $\int_C f$.
+\end{definition}
+
+\subsection{Properties of the Integral}
+\begin{enumerate}
+    \item \textbf{Linearity:} $\int_C (\alpha f + \beta g) = \alpha \int_C f + \beta \int_C g$.
+    \item \textbf{Monotonicity:} If $f \le g$ on $C$, then $\int_C f \le \int_C g$.
+    \item \textbf{Indicator Function:} For a set $K \subseteq C$, if $1_K$ is integrable, we define the volume of $K$ as $\text{vol}(K) = \int_C 1_K$.
+    \item \textbf{Additivity of Domain:} If $C = K \cup L$ with negligible overlap, $\text{vol}(K \cup L) = \text{vol}(K) + \text{vol}(L)$.
+\end{enumerate}
+
+\section{Recitation Notes: Area Calculation}
+
+\subsection{Example: Area of a Triangle}
+Let $\Delta = \{ (x, y) \in \mathbb{R}^2 \mid 0 \le x \le 1, 0 \le y \le x \}$.
+We want to compute $\text{area}(\Delta) = \int_{[0,1]^2} 1_\Delta$.
+We construct a partition $P$ of $[0, 1] \times [0, 1]$ using a uniform grid of size $N \times N$.
+The sub-squares that intersect the diagonal (boundary of $\Delta$) contribute to the difference between upper and lower sums.
+The number of such squares is $O(N)$, and their total area is $O(1/N)$.
+Since $\lim_{N \to \infty} O(1/N) = 0$, the function is integrable.
+Calculation of the sum yields:
+\[ \text{area}(\Delta) = \lim_{N \to \infty} \sum_{i=1}^N \frac{i}{N} \cdot \frac{1}{N^2} \approx \frac{1}{2} \]
+Specifically, the calculation shows $\text{Area} = \frac{1}{2} + o(1)$.

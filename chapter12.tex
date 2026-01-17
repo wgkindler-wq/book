@@ -1,0 +1,47 @@
+\chapter{Inverse Function Theorem and Optimization}
+
+\section{The Inverse Function Theorem}
+
+\begin{theorem}[Inverse Function Theorem]
+Let $f: \mathbb{R}^n \to \mathbb{R}^n$. Let $x^* \in \mathbb{R}^n$.
+If $f$ is continuously differentiable ($C^1$) in a neighborhood of $x^*$, and the Jacobian matrix $Df(x^*)$ is invertible (i.e., $\det(Df(x^*)) \neq 0$), then:
+\begin{enumerate}
+    \item There exists an open neighborhood $U$ of $x^*$ and an open neighborhood $V$ of $y^* = f(x^*)$ such that $f: U \to V$ is a diffeomorphism (a bijection with a differentiable inverse).
+    \item The derivative of the inverse function is given by:
+    \[ D(f^{-1})(y) = [Df(f^{-1}(y))]^{-1} \]
+\end{enumerate}
+\end{theorem}
+
+\subsection{Proof of Injectivity (Local)}
+We want to show that $f$ is injective near $x^*$.
+Consider the linear approximation: $f(x) \approx f(x^*) + Df(x^*)(x-x^*)$.
+Let $A = Df(x^*)$. Since $A$ is invertible, $\|Ax\| \ge c \|x\|$ for some $c > 0$.
+The error term is $r(x) = f(x) - f(x^*) - A(x-x^*)$, which is $o(\|x-x^*\|)$.
+For $x_1, x_2$ close to $x^*$:
+\[ f(x_1) - f(x_2) = A(x_1 - x_2) + (r(x_1) - r(x_2)) \]
+Using the Mean Value Inequality on the error term (whose derivative is small near $x^*$):
+\[ \|r(x_1) - r(x_2)\| \le \epsilon \|x_1 - x_2\| \]
+Thus:
+\[ \|f(x_1) - f(x_2)\| \ge \|A(x_1 - x_2)\| - \|r(x_1) - r(x_2)\| \ge (c - \epsilon) \|x_1 - x_2\| \]
+For small enough neighborhood, $\epsilon < c$, so if $x_1 \neq x_2$, then $f(x_1) \neq f(x_2)$. Thus, $f$ is injective locally.
+
+\section{Optimization with Constraints}
+
+\subsection{Lagrange Multipliers}
+To find the extrema of a function $f(x)$ subject to a constraint $g(x) = c$:
+\begin{theorem}
+If $x^*$ is a local extremum of $f$ restricted to the set $\{x \mid g(x)=c\}$, and $\nabla g(x^*) \neq 0$, then there exists a scalar $\lambda$ (Lagrange multiplier) such that:
+\[ \nabla f(x^*) = \lambda \nabla g(x^*) \]
+\end{theorem}
+
+\subsection{Example}
+Maximize $f(x,y) = 3x+4y$ subject to $x^2+y^2=1$.
+Gradients:
+$\nabla f = (3, 4)$
+$\nabla g = (2x, 2y)$
+Equation: $(3, 4) = \lambda (2x, 2y) \implies x = \frac{3}{2\lambda}, y = \frac{4}{2\lambda}$.
+Substitute into constraint:
+$(\frac{3}{2\lambda})^2 + (\frac{4}{2\lambda})^2 = 1 \implies \frac{9+16}{4\lambda^2} = 1 \implies 4\lambda^2 = 25 \implies \lambda = \pm \frac{5}{2}$.
+If $\lambda = \frac{5}{2}$: $x = \frac{3}{5}, y = \frac{4}{5}$. Value: $f = \frac{9}{5} + \frac{16}{5} = \frac{25}{5} = 5$.
+If $\lambda = -\frac{5}{2}$: $x = -\frac{3}{5}, y = -\frac{4}{5}$. Value: $f = -5$.
+Max value is 5 at $(\frac{3}{5}, \frac{4}{5})$.

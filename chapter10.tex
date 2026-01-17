@@ -1,0 +1,31 @@
+\chapter{Higher Order Differentials}
+
+\section{Differentials of Order $k$}
+
+\subsection{Definition}
+Let $f: \mathbb{R}^n \to \mathbb{R}$ and $x^* \in \mathbb{R}^n$. Let $dx = x - x^*$.
+\begin{itemize}
+    \item \textbf{Order 0:} $f$ has a differential of order 0 at $x^*$ if $f(x) = f(x^*) + o(1)$. We denote $d^0 f_{x^*} = f(x^*)$.
+    \item \textbf{Order 1:} $f$ has a differential of order 1 at $x^*$ if $f(x) = f(x^*) + L(dx) + o(\|dx\|)$ where $L$ is linear. We denote $df_{x^*} = L(dx) = \sum \frac{\partial f}{\partial x_i} dx_i$.
+    \item \textbf{Order 2:} $f$ has a differential of order 2 at $x^*$ if:
+    \[ f(x) = f(x^*) + d^1 f_{x^*} + \frac{1}{2} Q(dx) + o(\|dx\|^2) \]
+    where $Q$ is a quadratic form. We denote $d^2 f_{x^*} = Q(dx) = (dx)^T H (dx)$, where $H$ is the Hessian.
+\end{itemize}
+
+\subsection{General Case}
+A function $f$ has a differential of order $k$ at $x^*$ if there exists a homogeneous polynomial $P_k(dx)$ of degree $k$ such that:
+\[ f(x) = \sum_{j=0}^{k} \frac{1}{j!} d^j f_{x^*} + o(\|dx\|^k) \]
+where $d^j f_{x^*}$ is the differential of order $j$.
+
+\section{Uniqueness Theorem}
+
+\begin{theorem}
+If $f$ has a differential of order $k$ at $x^*$, it is unique.
+In other words, if $f(x) = P(x-x^*) + o(\|x-x^*\|^k)$ where $P$ is a polynomial of degree $\le k$, then $P$ is the Taylor polynomial of order $k$.
+\end{theorem}
+
+\subsection{Example}
+For $n=2$, let $dx = (dx_1, dx_2)$.
+A polynomial of degree 2 in $dx$ is $P(dx) = a dx_1^2 + b dx_1 dx_2 + c dx_2^2$.
+This corresponds to the quadratic form associated with the Hessian matrix.
+The differential $d^2 f$ captures the local curvature of the function.

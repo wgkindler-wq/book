@@ -1,0 +1,60 @@
+\chapter{Change of Variables in Integration}
+
+\section{The Change of Variables Theorem}
+
+\begin{theorem}[Change of Variables]
+Let $\varphi: A \to B$ be a diffeomorphism between open sets $A, B \subseteq \mathbb{R}^n$. Let $f: B \to \mathbb{R}$ be an integrable function. Then:
+\[ \int_B f(y) dy = \int_A f(\varphi(x)) \cdot |\det(D\varphi(x))| dx \]
+\end{theorem}
+
+\section{Proof for Linear Transformations}
+
+We first prove the theorem for the case where $\varphi(x) = Tx$ for a linear map $T \in \text{Mat}_{n \times n}(\mathbb{R})$. In this case, $D\varphi(x) = T$, so we must show:
+\[ \text{vol}(T(A)) = |\det(T)| \cdot \text{vol}(A) \]
+
+\begin{proof}
+Every invertible matrix $T$ can be written as a product of elementary matrices: $T = E_k E_{k-1} \dots E_1$.
+It suffices to prove the claim for elementary matrices, since the determinant is multiplicative.
+
+\textbf{Case 1: Diagonal Scaling}
+Let $T$ be a diagonal matrix with diagonal entries $\lambda_1, \dots, \lambda_n$. This transformation scales the $i$-th coordinate by $\lambda_i$.
+For a box $A = [a_1, b_1] \times \dots \times [a_n, b_n]$, the image $T(A)$ is $[\lambda_1 a_1, \lambda_1 b_1] \times \dots$.
+The volume is scaled by $|\lambda_1 \dots \lambda_n| = |\det(T)|$.
+
+\textbf{Case 2: Row Swapping}
+If $T$ swaps two coordinates, it is a reflection. The volume remains unchanged. $\det(T) = -1$, so $|\det(T)| = 1$. The formula holds.
+
+\textbf{Case 3: Shear Transformation (Row Addition)}
+Let $T = I + \lambda E_{ij}$ with $i \neq j$. This is a shear transformation ($x_i \mapsto x_i + \lambda x_j$).
+By Cavalieri's Principle (or Fubini's Theorem), the volume is preserved.
+\[ \text{vol}(T(A)) = \text{vol}(A) \]
+Since $\det(T) = 1$, the formula holds: $1 \cdot \text{vol}(A) = \text{vol}(T(A))$.
+
+\textbf{Conclusion:}
+Since the formula holds for all elementary matrices, and any $T$ is a composition of them:
+\[ \text{vol}(T(A)) = |\det(E_k)| \dots |\det(E_1)| \cdot \text{vol}(A) = |\det(T)| \cdot \text{vol}(A) \]
+\end{proof}
+
+\section{Examples}
+
+\subsection{Linear Change of Variables}
+Calculate $\int_K \frac{1}{2x^2+6y^2+7xy} dx dy$ where $K$ is the region bounded by:
+\[ 2x+3y=1, \quad 2x+3y=e, \quad x+2y=1, \quad x+2y=e \]
+\textbf{Solution:}
+Let $u = 2x+3y$ and $v = x+2y$.
+This defines a linear map $\psi(x,y) = (u,v)$. We need the inverse map $\varphi(u,v) = (x,y)$.
+The domain $K$ transforms into the square $R = [1, e] \times [1, e]$.
+The Jacobian of the inverse map is the inverse of the Jacobian determinant:
+\[ \det \frac{\partial(u,v)}{\partial(x,y)} = \det \begin{pmatrix} 2 & 3 \\ 1 & 2 \end{pmatrix} = 4-3 = 1 \]
+Thus, $|\det \varphi'| = \frac{1}{1} = 1$.
+The integral becomes:
+\[ \int_R \frac{1}{uv} du dv = \left( \int_1^e \frac{1}{u} du \right) \left( \int_1^e \frac{1}{v} dv \right) = (\ln e - \ln 1)^2 = 1 \]
+
+\subsection{Polar Coordinates}
+For the map $\varphi(r, \theta) = (r \cos \theta, r \sin \theta)$:
+\[ D\varphi = \begin{pmatrix} \cos \theta & -r \sin \theta \\ \sin \theta & r \cos \theta \end{pmatrix} \]
+\[ \det(D\varphi) = r \cos^2 \theta + r \sin^2 \theta = r \]
+Thus, $dx dy = r dr d\theta$.
+
+\textbf{Example:} Integral of $(\sqrt{x^2+y^2})^k$ over the disk $B(0, R)$.
+\[ \int_{B(0,R)} r^k dx dy = \int_0^{2\pi} \int_0^R r^k \cdot r dr d\theta = 2\pi \int_0^R r^{k+1} dr = 2\pi \frac{R^{k+2}}{k+2} \]
