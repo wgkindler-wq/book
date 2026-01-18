@@ -51,10 +51,12 @@ Two subsets $K, L \subseteq \mathbb{R}^n$ are said to be \textbf{congruent by tr
 This connects to high school geometry: two shapes are ``congruent'' if you can pick one up and place it on top of the other. In this context, we restrict to pure translation (no rotation).
 
 \textbf{Example:} The two circles $C_0$ and $C_{(2,1)}$ are congruent by translation. Indeed, if we translate $C_0$ by the vector $y = (2, 1)$, we get:
-\[ C_0 + (2,1) = \{ (x+2, y+1) \mid x^2 + y^2 = 1 \} = \{ (u, v) \mid (u-2)^2 + (v-1)^2 = 1 \} = C_{(2,1)} \]
+\[ C_0 + (2,1) = \{ (a+2, b+1) \mid a^2 + b^2 = 1 \} = \{ (u, v) \mid (u-2)^2 + (v-1)^2 = 1 \} = C_{(2,1)} \]
 
 \subsection{Shapes as Equivalence Classes of Sets}
-Congruence by translation is an equivalence relation on the collection of subsets of $\mathbb{R}^n$ (it is reflexive, symmetric, and transitive; we omit the proof here as it follows straightforwardly from the properties of vector addition).
+Congruence by translation is an equivalence relation on the collection of subsets of $\mathbb{R}^n$.
+
+\textbf{Exercise:} Verify that $\cong_T$ is reflexive, symmetric, and transitive. (Hint: Use properties of vector addition. This follows the same pattern as the arrow equivalence relation we prove in Section 3.6.)
 
 To make congruent sets count as the \textit{same} shape, we define a \textbf{shape} to be an equivalence class under this relation. That is, a shape is not a specific subset of $\mathbb{R}^n$, but rather a collection of all subsets that are congruent by translation to one another.
 
@@ -157,21 +159,25 @@ This formalism allows us to distinguish between intrinsic properties of a shape 
 
 \section{Chapter Summary}
 
-In this chapter, we established the geometric foundations for working in $\mathbb{R}^n$:
+In this chapter, we established geometric foundations for $\mathbb{R}^n$ by formalizing intuitive notions of shapes, position, and vectors.
 
-\textbf{Key Definitions:}
+\textbf{Key Concepts:}
 \begin{itemize}
-    \item \textbf{Translation/Shift:} The map $S_y(x) = x + y$ that shifts space by vector $y$
+    \item \textbf{Points and Vectors:} Elements of $\mathbb{R}^n$ can be viewed as locations (points) or displacements (vectors)
+    \item \textbf{Vector Addition:} Component-wise sum $x+y = (x_1+y_1, \dots, x_n+y_n)$
+    \item \textbf{Translation:} The map $S_y(x) = x + y$ shifts space by vector $y$
     \item \textbf{Congruence by Translation:} $K \cong_T L$ if $\exists y: K+y = L$
-    \item \textbf{Vector as Equivalence Class:} Vectors are equivalence classes of arrows under the relation $(x,z) \sim (x',z') \iff z-x = z'-x'$
-    \item \textbf{Geometric Property:} A property invariant under translations
+    \item \textbf{Shapes:} Defined as equivalence classes of congruent sets (position-independent)
+    \item \textbf{Arrows:} Equivalence classes of pairs of points under $(x,z) \sim (x',z') \iff z-x = z'-x'$
+    \item \textbf{Geometric Properties:} Properties invariant under translations
 \end{itemize}
 
 \textbf{Key Results:}
 \begin{itemize}
-    \item The relation $\sim$ is an equivalence relation (reflexive, symmetric, transitive)
-    \item Each equivalence class corresponds to a unique vector in $\mathbb{R}^n$
-    \item Geometric properties capture the intrinsic nature of shapes, independent of position
+    \item Congruence by translation is an equivalence relation
+    \item Each arrow equivalence class corresponds to a unique displacement vector in $\mathbb{R}^n$
+    \item Arrows can be represented as vectors or as drawn arrows
+    \item Geometric properties distinguish intrinsic shape properties from extrinsic position properties
 \end{itemize}
 
-These concepts provide the foundation for defining norms and distances in Chapter 2, which in turn enable the O notation (Chapter 3) and derivative definitions (Chapter 4).
+These concepts provide the foundation for Chapter 2 (norms and distances), Chapter 3 (O notation), and Chapter 4 (derivatives as linear approximations).
