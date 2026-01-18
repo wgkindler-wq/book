@@ -1,19 +1,39 @@
 \chapter{Affine Spaces and Vectors: A Geometric Foundation}
 
+We view calculus as a fundamental tool for understanding geometry. To begin this journey, we must first discuss the basic notions of geometry that will serve as our foundation. This chapter focuses on the geometry of $\mathbb{R}^n$, providing essential intuition about its structure and offering a modern perspective on the nature of geometry itself.
+
 \section{Introduction: From High School Geometry to University Mathematics}
 
-In high school geometry, we often think of vectors as ``arrows'' that have a length and a direction. We learn that two arrows are ``equivalent'' (or represent the same vector) if they have the same length and direction, even if they start at different locations.
+In high school geometry, we often distinguish between the intrinsic properties of a geometric object and its specific location in space. We intuitively understand that a triangle remains the "same" triangle, or a circle the "same" circle, regardless of where it is drawn. A familiar example of this principle is the treatment of vectors as ``arrows'': two arrows are considered equivalent if they possess the same length and direction, even if they are anchored at different points. This suggests that geometry is less about fixed locations and more about the relationships and transformations between them.
 
 In this chapter, we formalize this intuition using the language of $\mathbb{R}^n$. We will see that vectors can be thought of as ``translations'' or ``shifts'' of the space, and that many geometric properties we are familiar with (like congruence) are simply properties that remain unchanged when we shift figures around.
 
-This geometric foundation will prove essential in Chapter 3 when we introduce the O notation for comparing functions via norms, and in Chapter 4 when we define derivatives as linear approximations.
 
 \section{Points and Translations in $\mathbb{R}^n$}
 
 \subsection{The Space $\mathbb{R}^n$}
-We define the space $\mathbb{R}^n$ as the set of all $n$-tuples of real numbers:
+In elementary geometry, we represent points in the plane or in space using Cartesian coordinates. A point in the plane is uniquely identified by a pair of real numbers $(x, y) \in \mathbb{R}^2$, and a point in space by a triple $(x, y, z) \in \mathbb{R}^3$. This allows us to think of geometry as the study of the properties and relationships of these tuples of real numbers.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, >=stealth]
+  % 2D Point
+  \draw[->] (-0.5,0) -- (2.5,0) node[right] {$x$};
+  \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$};
+  \fill (1,1) circle (2pt) node[above right] {$(1,1)$};
+\end{tikzpicture}
+\hspace{1.5cm}
+\begin{tikzpicture}[scale=1, >=stealth]
+%TODO: finish this illustration
+  \draw[->] (-0.5,0,0) -- (2.5,0,0) node[right] {$x$};
+  \draw[->] (0,-0.5,0) -- (0,2.5,0) node[above] {$y$};
+  \draw[->] (0,0,-0.5) -- (0,0,2.5) node[above] {$z$};
+  \fill (1,1,1) circle (2pt) node[above right] {$(1,1,1)$};
+\end{tikzpicture}
+\end{center}
+
+We can extend this idea to any dimension $n$ by defining the space $\mathbb{R}^n$ as the set of all $n$-tuples of real numbers:
 \[ \mathbb{R}^n = \{ (x_1, \dots, x_n) \mid x_i \in \mathbb{R} \} \]
-Elements of $\mathbb{R}^n$ are called both \textbf{points} and \textbf{vectors}, and we use these terms interchangeably. The dual terminology reflects the fact that elements of $\mathbb{R}^n$ can be viewed either as locations in space (points) or as displacements from the origin (vectors).
+While our direct intuition is rooted in $\mathbb{R}^2$ and $\mathbb{R}^3$, we can carry these algebraic structures over to $\mathbb{R}^n$, allowing us to study geometry in higher dimensions. Elements of $\mathbb{R}^n$ are called both \textbf{points} and \textbf{vectors}, reflecting the fact that they can be viewed either as locations in space (points) or as displacements from the origin (vectors).
 
 \subsection{Vector Addition}
 Given two vectors $x = (x_1, \dots, x_n)$ and $y = (y_1, \dots, y_n)$ in $\mathbb{R}^n$, we define their \textbf{sum} by adding corresponding components:
