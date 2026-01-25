@@ -1,3 +1,16 @@
+/*
+ This script extracts all pages from a PDF file and saves them as individual PNG images.
+
+ Usage:
+ swift extract_pages.swift <input_pdf_path> <output_directory>
+
+ Arguments:
+ - <input_pdf_path>: The path to the source PDF file.
+ - <output_directory>: The directory where the extracted PNG images will be saved.
+
+ Example:
+ swift extract_pages.swift my_document.pdf ./output_images
+*/
 import Foundation
 import PDFKit
 import AppKit
