@@ -36,8 +36,3 @@ However, elements of $\R$ have a different geometric interpretation, that of a t
 
 
 
-
-
-
-
--- subsection: the real line as a vector space

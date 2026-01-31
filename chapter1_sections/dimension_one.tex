@@ -29,12 +29,11 @@ We can define a \textbf{shape} as an equivalence class of subsets of $\mathbb{R}
 \[ B = \{ a + v \mid a \in A \} \]
 From this perspective, a vector is simply a special case of a shape: it is the shape formed by a single point (an equivalence class of singletons).
 
-A \textbf{geometric property} is a property that is invariant under translation. For example, the "length" of an interval is a geometric property because shifting an interval does not change its length. Being "open" or "closed" are also geometric properties. The specific coordinate values of an interval (e.g., "contains the number 5") are \emph{not} geometric properties, as they depend on the location.
+We can generalize this even further. Consider a pair of shapes, or more generally, a tuple of subsets of $\mathbb{R}$. We can apply a translation to the entire tuple component-wise.
+We define a \textbf{geometric object} as an equivalence class of tuples of subsets of $\mathbb{R}$ under translation.
+For instance, a pair of points $(A, B)$ can be viewed as a geometric object. If we shift both $A$ and $B$ by the same $v$, we get an equivalent pair. This captures the relative position of the sets within the tuple.
+Vectors are thus a special case of geometric objects where the tuple consists of two sets, each containing a single point. An arrow $(x, y)$ corresponds to the tuple of sets $(\{x\}, \{y\})$. The equivalence class of this tuple under translation is precisely the vector $y-x$. This broad definition allows us to study properties that depend on the configuration of multiple shapes relative to each other, invariant under the absolute position in space.
 
-\subsection{The Real Line as a Vector Space}
-The set $\mathbb{R}$, tailored with the operation of addition, satisfies the axioms of a vector space.
-\[ x + y = y + x \]
-\[ (x + y) + z = x + (y + z) \]
-There exists a zero element $0$ such that $x + 0 = x$.
-For every $x$, there exists an inverse $-x$ such that $x + (-x) = 0$.
-These algebraic properties mirror the geometric properties of translations (composition of shifts, null shift, reverse shift). This structure on $\mathbb{R}$ serves as the prototype for the $n$-dimensional vector space $\mathbb{R}^n$, which we will explore next.
+A \textbf{geometric property} can be viewed in two equivalent ways. First, it is a property of tuples of sets which is invariant under translations. For example, the property "the distance between the two points is 5" is a geometric property of a pair of points, because shifting the pair does not change the distance.
+Equivalently, it is a property of geometric objects themselves. Since all tuples in an equivalence class share the same invariant properties, we can ascribe the property to the class as a whole. Thus, "length" is a property of the vector (or interval) itself, independent of where it is located in space.
+
