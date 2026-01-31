@@ -1,0 +1,40 @@
+\section{Points and Translations in $\mathbb{R}^n$}
+
+\subsection{The Space $\mathbb{R}^n$}
+In elementary geometry, we represent points in the plane or in space using Cartesian coordinates. A point in the plane is uniquely identified by a pair of real numbers $(x, y) \in \mathbb{R}^2$, and a point in space by a triple $(x, y, z) \in \mathbb{R}^3$. This allows us to think of geometry as the study of the properties and relationships of these tuples of real numbers.
+
+\begin{center}
+\begin{tikzpicture}[scale=1, >=stealth]
+  % 2D Point
+  \draw[->] (-0.5,0) -- (2.5,0) node[right] {$x$};
+  \draw[->] (0,-0.5) -- (0,2.5) node[above] {$y$};
+  \fill (1,1) circle (2pt) node[above right] {$(1,1)$};
+\end{tikzpicture}
+\hspace{1.5cm}
+\begin{tikzpicture}[scale=1, >=stealth]
+%TODO: finish this illustration
+  \draw[->] (-0.5,0,0) -- (2.5,0,0) node[right] {$x$};
+  \draw[->] (0,-0.5,0) -- (0,2.5,0) node[above] {$y$};
+  \draw[->] (0,0,-0.5) -- (0,0,2.5) node[above] {$z$};
+  \fill (1,1,1) circle (2pt) node[above right] {$(1,1,1)$};
+\end{tikzpicture}
+\end{center}
+
+We can extend this idea to any dimension $n$ by defining the space $\mathbb{R}^n$ as the set of all $n$-tuples of real numbers:
+\[ \mathbb{R}^n = \{ (x_1, \dots, x_n) \mid x_i \in \mathbb{R} \} \]
+While our direct intuition is rooted in $\mathbb{R}^2$ and $\mathbb{R}^3$, we can carry these algebraic structures over to $\mathbb{R}^n$, allowing us to study geometry in higher dimensions. Elements of $\mathbb{R}^n$ are called both \textbf{points} and \textbf{vectors}, reflecting the fact that they can be viewed either as locations in space (points) or as displacements from the origin (vectors).
+
+\subsection{Vector Addition}
+Given two vectors $x = (x_1, \dots, x_n)$ and $y = (y_1, \dots, y_n)$ in $\mathbb{R}^n$, we define their \textbf{sum} by adding corresponding components:
+\[ x + y = (x_1 + y_1, \dots, x_n + y_n) \]
+This operation is inherited from the component-wise structure of $\mathbb{R}^n$ and satisfies familiar properties such as commutativity ($x+y = y+x$) and associativity ($(x+y)+z = x+(y+z)$).
+
+\subsection{Translations (Shifts)}
+A fundamental operation in this space is moving from one point to another.
+Given a fixed vector $y \in \mathbb{R}^n$, we define the \textbf{translation} (or shift) map $S_y: \mathbb{R}^n \to \mathbb{R}^n$ by:
+\[ S_y(x) = x + y \]
+where the sum $x+y$ is the vector addition defined above.
+Intuitively, this map shifts the entire space by the vector $y$.
+If $K \subseteq \mathbb{R}^n$ is a shape, its translation is:
+\[ S_y(K) = \{ x+y \mid x \in K \} \]
+We denote this simply as $K+y$.
