@@ -1,0 +1,43 @@
+skeleton for the one dimension section
+
+-- subsection: a geometric look at the real line
+
+Although we assume that the reader already knows the real line, it is beneficial to take a geometric look at it to set the stage for the higher dimensional cases. The real line is a set $\mathbb{R}$ of elements, which are often called numbers, but they have different names depending on the context. For example, they are called points when we are thinking of them as geometric objects: when $\R$ is drawn as a line on the plane, each element is represented by a point on it. 
+
+However, elements of $\R$ have a different geometric interpretation, that of a translation of the origin: the element $2$, for example, can be thought of as the translation of the origin by $2$ units to the right. 
+
+-- talk about how we can also translate other points by $2$ units to the right. 
+
+-- we can also talk about the operator of translation by $2$ units to the right: addition of numbers is obtained by applying these operators one after the other. 
+
+-- when we think about elements of $\R$ as shift operators, it is convenient to think of them as arrows rather than points. We can draw an arrow starting at the origin and ending at the point $x$ to represent the shift operator $x$. But we can also draw the same arrow starting at any point $y$ and ending at the point $y+x$. 
+
+-- formally, we think of arrows as pairs of points $(x,y)$ where $x$ is the anchor point and $y$ is the head point.
+
+-- two arrows $(x,y)$ and $(x',y')$ are considered equivalent if they represent the same shift operator, i.e. $y-x = y'-x'$. 
+
+-- more formally, we define an equivalence relation $\sim$ on the set of arrows by $(x,y) \sim (x',y') \iff y-x = y'-x'$. Since all these pairs represent the same shift operator, we can think of the whole equivalence class as a geometric object, called a vector. Each arrow in the class is just a representation of a vector.
+
+-- a drawing of several arrows representing the same vector.
+
+-- talk about addition of vectors: how to visualize it using arrows, and what it represents in terms of shift operators.
+
+-- subsection: geometric objects
+
+-- we defined a vector as an equivalence class of arrows. we can generalize this idea to define other geometric objects. 
+
+-- we can define a shape as an equivalence class of sets of points under translation.
+
+-- we can also apply translations to tuples of sets of points, and define an equivalence relation on tuples of sets of points under translation. Such an equivalence class is called a geometric object. Vectors are a special case of geometric objects, where the tuple of shapes is a single point.
+
+-- a geometric property is a property of geometric objects. Alternatively, it is a property of sets of points (or tuples of sets of points) that is invariant under translations.
+
+-- give examples of geometric properties in $\R$, such as being a line segment, being bounded, etc.
+
+
+
+
+
+
+
+-- subsection: the real line as a vector space
