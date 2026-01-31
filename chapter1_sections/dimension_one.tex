@@ -1,0 +1,40 @@
+\section{Dimension One: A Geometric Look at the Real Line}
+
+Although we assume familiarity with the real numbers $\mathbb{R}$, it is beneficial to revisit them from a geometric perspective to set the stage for higher dimensions. The real line is a set $\mathbb{R}$ of elements, conventionally called numbers. However, in geometry, their role depends on the context.
+
+When we visualize $\mathbb{R}$ as a line, each element corresponds to a specific location. In this context, we refer to elements of $\mathbb{R}$ as \textbf{points}.
+
+\subsection{Translations and Vectors}
+
+Elements of $\mathbb{R}$ have another geometric interpretation: they can represent a \textbf{translation} or shift. For example, the number $2$ can be thought of as the operation of shifting the origin (or any other point) by $2$ units to the right.
+
+Formally, for any fixed number $v \in \mathbb{R}$, we can define a translation operator $T_v: \mathbb{R} \to \mathbb{R}$ by:
+\[ T_v(x) = x + v \]
+This operator takes a point $x$ and shifts it by $v$. When we think of elements of $\mathbb{R}$ as defining these shift operators, it is often helpful to visualize them as \textbf{arrows} rather than points.
+
+An arrow can be drawn starting at the origin $0$ and ending at $v$ to represent the shift $v$. However, the same shift operation can be applied to any point. Thus, we can draw an arrow starting at any point $x$ and ending at $x+v$ to represent the same translation $v$.
+Formally, we can think of an arrow as a pair of points $(x, y)$, where $x$ is the \emph{tail} (or anchor) and $y$ is the \emph{head}. This arrow represents the displacement from $x$ to $y$.
+
+Two arrows $(x, y)$ and $(x', y')$ are considered \textbf{equivalent} if they represent the same displacement, which means:
+\[ y - x = y' - x' \]
+This defines an equivalence relation on the set of all arrows. We define a \textbf{vector} to be an equivalence class of arrows under this relation.
+In this way, a vector captures the abstract notion of "magnitude and direction" (in 1D, direction is just sign) independent of a starting location. The number $v = y-x$ uniquely identifies this vector.
+
+\subsection{Geometric Objects}
+
+The concept of defining a geometric object as an equivalence class extends beyond vectors.
+Consider a shape, like an interval $[a, b] \subset \mathbb{R}$. If we shift this interval by some amount $v$, we get a new set $[a+v, b+v]$. Intuitively, these two sets represent the "same" geometric shape, just in different locations.
+
+We can define a \textbf{shape} as an equivalence class of subsets of $\mathbb{R}$ under translation. Two sets $A, B \subset \mathbb{R}$ determine the same shape if there exists a translation $v$ such that:
+\[ B = \{ a + v \mid a \in A \} \]
+From this perspective, a vector is simply a special case of a shape: it is the shape formed by a single point (an equivalence class of singletons).
+
+A \textbf{geometric property} is a property that is invariant under translation. For example, the "length" of an interval is a geometric property because shifting an interval does not change its length. Being "open" or "closed" are also geometric properties. The specific coordinate values of an interval (e.g., "contains the number 5") are \emph{not} geometric properties, as they depend on the location.
+
+\subsection{The Real Line as a Vector Space}
+The set $\mathbb{R}$, tailored with the operation of addition, satisfies the axioms of a vector space.
+\[ x + y = y + x \]
+\[ (x + y) + z = x + (y + z) \]
+There exists a zero element $0$ such that $x + 0 = x$.
+For every $x$, there exists an inverse $-x$ such that $x + (-x) = 0$.
+These algebraic properties mirror the geometric properties of translations (composition of shifts, null shift, reverse shift). This structure on $\mathbb{R}$ serves as the prototype for the $n$-dimensional vector space $\mathbb{R}^n$, which we will explore next.
