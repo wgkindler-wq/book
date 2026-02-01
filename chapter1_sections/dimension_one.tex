@@ -15,6 +15,33 @@ This operator takes a point $x$ and shifts it by $v$. When we think of elements 
 An arrow can be drawn starting at the origin $0$ and ending at $v$ to represent the shift $v$. However, the same shift operation can be applied to any point. Thus, we can draw an arrow starting at any point $x$ and ending at $x+v$ to represent the same translation $v$.
 Formally, we can think of an arrow as a pair of points $(x, y)$, where $x$ is the \emph{tail} (or anchor) and $y$ is the \emph{head}. This arrow represents the displacement from $x$ to $y$.
 
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        % Number line
+        \draw[<->] (-1,0) -- (8,0);
+        \foreach \x in {0,2,5,7} \draw (\x,0.1) -- (\x,-0.1);
+        \node[below] at (0,-0.1) {$0$};
+        \node[below] at (2,-0.1) {$v$};
+        \node[below] at (5,-0.1) {$x$};
+        \node[below] at (7,-0.1) {$x+v$};
+        
+        % Vector v from origin
+        \draw[->, thick, blue] (0,0) -- (2,0) node[midway, above] {$v$};
+        
+        % Vector v from x
+        \draw[->, thick, blue] (5,0) -- (7,0) node[midway, above] {$v$};
+        
+        % Points
+        \filldraw (0,0) circle (1.5pt);
+        \filldraw (2,0) circle (1.5pt);
+        \filldraw (5,0) circle (1.5pt);
+        \filldraw (7,0) circle (1.5pt);
+    \end{tikzpicture}
+    \caption{Visualizing a vector $v$ as a translation. The blue arrows represent the same vector $v$, acting as a displacement from $0$ to $v$ and from $x$ to $x+v$. Both arrows represent the same geometric object.}
+    \label{fig:vector_translation}
+\end{figure}
+
 Two arrows $(x, y)$ and $(x', y')$ are considered \textbf{equivalent} if they represent the same displacement, which means:
 \[ y - x = y' - x' \]
 This defines an equivalence relation on the set of all arrows. We define a \textbf{vector} to be an equivalence class of arrows under this relation.
@@ -29,6 +56,35 @@ We can define a \textbf{shape} as an equivalence class of subsets of $\mathbb{R}
 \[ B = \{ a + v \mid a \in A \} \]
 From this perspective, a vector is simply a special case of a shape: it is the shape formed by a single point (an equivalence class of singletons).
 
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        % Number line
+        \draw[<->] (0,0) -- (7,0);
+        
+        % Interval A [1,2]
+        \draw[ultra thick, red] (1,0) -- (2,0);
+        \node[above] at (1.5,0.1) {$A$};
+        \draw (1,0.1) -- (1,-0.1);
+        \draw (2,0.1) -- (2,-0.1);
+        \node[below] at (1,-0.1) {$1$};
+        \node[below] at (2,-0.1) {$2$};
+        
+        % Interval B [4,5] (translated by 3)
+        \draw[ultra thick, red] (4,0) -- (5,0);
+        \node[above] at (4.5,0.1) {$B$};
+        \draw (4,0.1) -- (4,-0.1);
+        \draw (5,0.1) -- (5,-0.1);
+        \node[below] at (4,-0.1) {$4$};
+        \node[below] at (5,-0.1) {$5$};
+
+        % Translation arrow
+        \draw[->, bend left] (1.5,0.5) to node[above] {Translation by $+3$} (4.5,0.5);
+    \end{tikzpicture}
+    \caption{The sets $A=[1,2]$ and $B=[4,5]$ represent the same geometric shape because one is a translation of the other.}
+    \label{fig:shape_equivalence}
+\end{figure}
+
 We can generalize this even further. Consider a pair of shapes, or more generally, a tuple of subsets of $\mathbb{R}$. We can apply a translation to the entire tuple component-wise.
 We define a \textbf{geometric object} as an equivalence class of tuples of subsets of $\mathbb{R}$ under translation.
 For instance, a pair of points $(A, B)$ can be viewed as a geometric object. If we shift both $A$ and $B$ by the same $v$, we get an equivalent pair. This captures the relative position of the sets within the tuple.
@@ -36,4 +92,26 @@ Vectors are thus a special case of geometric objects where the tuple consists of
 
 A \textbf{geometric property} can be viewed in two equivalent ways. First, it is a property of tuples of sets which is invariant under translations. For example, the property "the distance between the two points is 5" is a geometric property of a pair of points, because shifting the pair does not change the distance.
 Equivalently, it is a property of geometric objects themselves. Since all tuples in an equivalence class share the same invariant properties, we can ascribe the property to the class as a whole. Thus, "length" is a property of the vector (or interval) itself, independent of where it is located in space.
+
+\begin{figure}[h]
+    \centering
+    \begin{tikzpicture}
+        % Configuration 1
+        \draw[<->] (-1,2) -- (6,2);
+        \filldraw (0,2) circle (1.5pt) node[above] {$P$};
+        \filldraw (2,2) circle (1.5pt) node[above] {$Q$};
+        \draw[decorate,decoration={brace,amplitude=5pt,mirror}] (0,1.8) -- (2,1.8) node[midway,below=5pt] {$d$};
+        
+        % Configuration 2
+        \draw[<->] (-1,0) -- (6,0);
+        \filldraw (3,0) circle (1.5pt) node[above] {$P'$};
+        \filldraw (5,0) circle (1.5pt) node[above] {$Q'$};
+        \draw[decorate,decoration={brace,amplitude=5pt,mirror}] (3,-0.2) -- (5,-0.2) node[midway,below=5pt] {$d$};
+        
+        % Translation arrow
+        \draw[->, dashed, gray] (1,1.5) -- (4,0.5) node[midway, right] {$T_v$};
+    \end{tikzpicture}
+    \caption{Geometric properties, such as the distance $d$ between two points, are invariant under translation.}
+    \label{fig:geometric_invariance}
+\end{figure}
 
