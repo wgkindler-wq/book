@@ -1,0 +1,3 @@
+-- subsection: other symmetries
+
+-- we defined geometric 

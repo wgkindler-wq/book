@@ -46,13 +46,23 @@ Two arrows $(x, y)$ and $(x', y')$ are considered \textbf{equivalent} if they re
 This indeed defines an equivalence relation on the set of all arrows. An equivalence class thus contains arrows which correspond to the same displacement. Thus while each arrow in an equivalence class is a different object, they all signify the same geometric concept. We thus define a \textbf{vector} to be an equivalence class of arrows under this relation.
 This vector captures the abstract notion of "magnitude and direction" (in 1D, direction is just sign) of a shift, which can be respresented by an arrow but are independent of its starting point. Note that for a vector $v$ which contains the arros $(x,y)$, $v$ is uniquely identified by the number $y-x$. We therefore sometimes say, somewhat abusing definitions, "the vector $z$" when we actually mean the equivalence class of arrows $\set{(x, x+z)}_{x\in\mathbb{R}}$. 
 
-\subsection{Geometric Objects}
+\subsection{Shapes and Configurations}
 
-The concept of defining a geometric object as an equivalence class extends beyond vectors.
-Consider a shape, like an interval $[a, b] \subset \mathbb{R}$. If we shift this interval by some amount $v$, we get a new set $[a+v, b+v]$. Intuitively, these two sets represent the "same" geometric shape, just in different locations.
+The construction of vectors from arrows is a specific instance of a more general pattern in geometry: defining abstract geometric objects as equivalence classes of concrete configurations.
 
-We can define a \textbf{shape} as an equivalence class of subsets of $\mathbb{R}$ under translation. Two sets $A, B \subset \mathbb{R}$ determine the same shape if there exists a translation $v$ such that:
-\[ B = \{ a + v \mid a \in A \} \]
+We define a \textbf{shape} (or simply a subset) to be any subset $S \subset \mathbb{R}$. For example, the interval $[a, b] \subset \mathbb{R}$ is a shape.
+Furthermore, we define a \textbf{shape configuration} (or simply a configuration) to be a tuple of shapes (which may also include single points). For example, an arrow $(x, y)$ is a configuration of two points.
+
+For any translation $v \in \mathbb{R}$, we can translate a shape $S$ to get a new shape $S + v = \{ s + v \mid s \in S \}$. Similarly, we can translate a configuration by translating each of its components.
+
+\subsection{Geometric Shapes and Configurations}
+
+Intuitively, if we shift a shape like $[a, b]$ by some amount $v$, we get a new set $[a+v, b+v]$. While these are different subsets of $\mathbb{R}$, they represent the "same" geometric figure, just in different locations.
+
+We define a \textbf{geometric shape} as an equivalence class of shapes under translation. Two shapes $A, B \subset \mathbb{R}$ determine the same geometric shape if there exists a translation $v$ such that $B = A + v$.
+
+Similarly, we define a \textbf{geometric configuration} as an equivalence class of configurations under translation.
+For instance, consider an arrow consisting of a pair of points $(x, y)$. If we shift both $x$ and $y$ by the same $z$, we get an equivalent arrow $(x+z, y+z)$. The equivalence class of this arrow configuration is precisely what we defined earlier as a \textbf{vector}. Thus, a vector is a specific type of geometric configuration.
 
 \begin{figure}[h]
     \centering
@@ -83,12 +93,10 @@ We can define a \textbf{shape} as an equivalence class of subsets of $\mathbb{R}
     \label{fig:shape_equivalence}
 \end{figure}
 
-We can generalize this even further. Consider a pair of subsets, or more generally, a tuple of subsets of $\mathbb{R}$. We can naturally translate the entire tuple by applying translation to each component.
-We define a \textbf{geometric object} as an equivalence class of tuples of subsets of $\mathbb{R}$ under translation (for simplicity, we allow single point in a tuple so that we can avoid singletons).
-For instance, consider an arrow consisting of a pair of points $(x, y)$. If we shift both $x$ and $y$ by the same $z$, we get an equivalent arrow $(x+z, y+z)$ -- this captures the relative position of the sets within the tuple.
-Vectors are thus a special case of geometric objects where the tuple consists of two single point.  This broad definition of geometric objects allows us to study properties that depend on the configuration of multiple shapes relative to each other, and are invariant under the absolute position in space.
+A \textbf{geometric property} can be viewed in two equivalent ways. First, it is a property of configurations (or shapes) which is invariant under translations. For example, the property "the distance between the two points is 5" is a geometric property of a pair of points $(x, y)$, because shifting the pair does not change their distance. Equivalently, it is a property of geometric configurations (or geometric shapes). Since all configurations in an equivalence class share the same invariant properties, we can ascribe the property to the class as a whole. Thus, "length" is a property of the vector (or geometric interval) itself, independent of where it is located in space.
 
-A \textbf{geometric property} can be viewed in two equivalent ways. First, it is a property of tuples of sets which is invariant under translations. For example, the property "the distance between the two points is 5" is a geometric property of a pair of points $(x, y)$, because shifting the pair does not change their distance. Equivalently, it is a property of geometric objects, namely of equivalence classes of tuples of subsets of $\mathbb{R}$ under translation. Since all tuples in an equivalence class share the same invariant properties, we can ascribe the property to the class as a whole. Thus, "length" is a property of the vector (or interval) itself, independent of where it is located in space.
+\paragraph{Geometric Objects.}
+The term \textbf{geometric object} is a general term that encompasses geometric shapes, geometric configurations, and more. It refers to an equivalence class of any type of object for which translation is defined (this could include functions, vector fields, etc.). Whenever we have objects that can be translated, the equivalence classes under translation are the "geometric" versions of those objects.
 
 \begin{figure}[h]
     \centering
