@@ -1,18 +1,16 @@
 \section{Dimension One: A Geometric Look at the Real Line}
 
-Although we assume familiarity with the real numbers $\mathbb{R}$, it is beneficial to revisit them from a geometric perspective to set the stage for higher dimensions. The real line is a set $\mathbb{R}$ of elements, conventionally called numbers. However, in geometry, their role depends on the context.
-
-When we visualize $\mathbb{R}$ as a line, each element corresponds to a specific location. In this context, we refer to elements of $\mathbb{R}$ as \textbf{points}.
+Although we assume the reader is familiar with the real numbers $\mathbb{R}$, it is beneficial to revisit them from a more grown-up geometric perspective to set the stage for higher dimensions. The real line is a set $\mathbb{R}$ of elements that are conventionally called numbers. However in geometry, their names and their role depends on the context. For example, when we visualize $\mathbb{R}$ as a line in space, each element corresponds to a specific location. In this context, we refer to elements of $\mathbb{R}$ as \textbf{points}.
 
 \subsection{Translations and Vectors}
 
-Elements of $\mathbb{R}$ have another geometric interpretation: they can represent a \textbf{translation} or shift. For example, the number $2$ can be thought of as the operation of shifting the origin (or any other point) by $2$ units to the right.
+Elements of $\mathbb{R}$ have another geometric interpretation: they can represent \textbf{translations} or shifts (in this book we use the two words interchangeably). For example, the number $v \in \mathbb{R}$ can associated with the operation of shifting the origin (or any other point) by $v$ units to the right.
 
 Formally, for any fixed number $v \in \mathbb{R}$, we can define a translation operator $T_v: \mathbb{R} \to \mathbb{R}$ by:
 \[ T_v(x) = x + v \]
-This operator takes a point $x$ and shifts it by $v$. When we think of elements of $\mathbb{R}$ as defining these shift operators, it is often helpful to visualize them as \textbf{arrows} rather than points.
+This operator takes a point $x$ and shifts it by $v$, obtaining the point $x+v$. When we think of elements of $\mathbb{R}$ as defining these shift operators, it is often helpful to visualize them as \textbf{arrows} rather than points, which visually correspond to the shift operation.
 
-An arrow can be drawn starting at the origin $0$ and ending at $v$ to represent the shift $v$. However, the same shift operation can be applied to any point. Thus, we can draw an arrow starting at any point $x$ and ending at $x+v$ to represent the same translation $v$.
+An arrow can be drawn starting at the origin $0$ and ending at $v$ to represent the shift $v$. However, the same shift operation can be applied to any point. Thus, we can draw an arrow starting at any point $x$ and ending at $x+v$ to represent the same shift $v$.
 Formally, we can think of an arrow as a pair of points $(x, y)$, where $x$ is the \emph{tail} (or anchor) and $y$ is the \emph{head}. This arrow represents the displacement from $x$ to $y$.
 
 \begin{figure}[h]
@@ -44,8 +42,9 @@ Formally, we can think of an arrow as a pair of points $(x, y)$, where $x$ is th
 
 Two arrows $(x, y)$ and $(x', y')$ are considered \textbf{equivalent} if they represent the same displacement, which means:
 \[ y - x = y' - x' \]
-This defines an equivalence relation on the set of all arrows. We define a \textbf{vector} to be an equivalence class of arrows under this relation.
-In this way, a vector captures the abstract notion of "magnitude and direction" (in 1D, direction is just sign) independent of a starting location. The number $v = y-x$ uniquely identifies this vector.
+(in which case one can define $z=y-x$, and the arrows become $(x, x+z)$ and $(x', x'+z)$ respectively)
+This indeed defines an equivalence relation on the set of all arrows. An equivalence class thus contains arrows which correspond to the same displacement. Thus while each arrow in an equivalence class is a different object, they all signify the same geometric concept. We thus define a \textbf{vector} to be an equivalence class of arrows under this relation.
+This vector captures the abstract notion of "magnitude and direction" (in 1D, direction is just sign) of a shift, which can be respresented by an arrow but are independent of its starting point. Note that for a vector $v$ which contains the arros $(x,y)$, $v$ is uniquely identified by the number $y-x$. We therefore sometimes say, somewhat abusing definitions, "the vector $z$" when we actually mean the equivalence class of arrows $\set{(x, x+z)}_{x\in\mathbb{R}}$. 
 
 \subsection{Geometric Objects}
 
@@ -54,7 +53,6 @@ Consider a shape, like an interval $[a, b] \subset \mathbb{R}$. If we shift this
 
 We can define a \textbf{shape} as an equivalence class of subsets of $\mathbb{R}$ under translation. Two sets $A, B \subset \mathbb{R}$ determine the same shape if there exists a translation $v$ such that:
 \[ B = \{ a + v \mid a \in A \} \]
-From this perspective, a vector is simply a special case of a shape: it is the shape formed by a single point (an equivalence class of singletons).
 
 \begin{figure}[h]
     \centering
@@ -85,13 +83,12 @@ From this perspective, a vector is simply a special case of a shape: it is the s
     \label{fig:shape_equivalence}
 \end{figure}
 
-We can generalize this even further. Consider a pair of shapes, or more generally, a tuple of subsets of $\mathbb{R}$. We can apply a translation to the entire tuple component-wise.
-We define a \textbf{geometric object} as an equivalence class of tuples of subsets of $\mathbb{R}$ under translation.
-For instance, a pair of points $(A, B)$ can be viewed as a geometric object. If we shift both $A$ and $B$ by the same $v$, we get an equivalent pair. This captures the relative position of the sets within the tuple.
-Vectors are thus a special case of geometric objects where the tuple consists of two sets, each containing a single point. An arrow $(x, y)$ corresponds to the tuple of sets $(\{x\}, \{y\})$. The equivalence class of this tuple under translation is precisely the vector $y-x$. This broad definition allows us to study properties that depend on the configuration of multiple shapes relative to each other, invariant under the absolute position in space.
+We can generalize this even further. Consider a pair of subsets, or more generally, a tuple of subsets of $\mathbb{R}$. We can naturally translate the entire tuple by applying translation to each component.
+We define a \textbf{geometric object} as an equivalence class of tuples of subsets of $\mathbb{R}$ under translation (for simplicity, we allow single point in a tuple so that we can avoid singletons).
+For instance, consider an arrow consisting of a pair of points $(x, y)$. If we shift both $x$ and $y$ by the same $z$, we get an equivalent arrow $(x+z, y+z)$ -- this captures the relative position of the sets within the tuple.
+Vectors are thus a special case of geometric objects where the tuple consists of two single point.  This broad definition of geometric objects allows us to study properties that depend on the configuration of multiple shapes relative to each other, and are invariant under the absolute position in space.
 
-A \textbf{geometric property} can be viewed in two equivalent ways. First, it is a property of tuples of sets which is invariant under translations. For example, the property "the distance between the two points is 5" is a geometric property of a pair of points, because shifting the pair does not change the distance.
-Equivalently, it is a property of geometric objects themselves. Since all tuples in an equivalence class share the same invariant properties, we can ascribe the property to the class as a whole. Thus, "length" is a property of the vector (or interval) itself, independent of where it is located in space.
+A \textbf{geometric property} can be viewed in two equivalent ways. First, it is a property of tuples of sets which is invariant under translations. For example, the property "the distance between the two points is 5" is a geometric property of a pair of points $(x, y)$, because shifting the pair does not change their distance. Equivalently, it is a property of geometric objects, namely of equivalence classes of tuples of subsets of $\mathbb{R}$ under translation. Since all tuples in an equivalence class share the same invariant properties, we can ascribe the property to the class as a whole. Thus, "length" is a property of the vector (or interval) itself, independent of where it is located in space.
 
 \begin{figure}[h]
     \centering
